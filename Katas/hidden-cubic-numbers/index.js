@@ -20,6 +20,5 @@ const isSumOfCubes = (s) => {
       number === "000" || number === "00" ? "0 " : String(number) + " ";
   });
   const cubicSum = cubicArray.reduce((acc, curr) => acc + Number(curr), 0);
-  const result = stringOfCubicNumbers + cubicSum + " " + "Lucky";
-  return result;
+  return stringOfCubicNumbers + cubicSum + " " + "Lucky";
 }
