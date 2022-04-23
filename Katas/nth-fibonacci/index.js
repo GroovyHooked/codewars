@@ -11,3 +11,4 @@ const nthFibo = (n) => {
   }
   return prev;
 };
+module.exports = nthFibo;
