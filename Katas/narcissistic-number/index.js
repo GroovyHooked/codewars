@@ -12,3 +12,5 @@ const narcissistic = (value) => {
   );
   return sumOfDigitsRaised === value;
 };
+
+module.exports = narcissistic
