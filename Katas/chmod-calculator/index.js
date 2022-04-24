@@ -1,5 +1,4 @@
 const chmodCalculator = (perm) => {
-  console.log(perm);
   const regexArr = [/rwx/, /r-x/, /r--/, /---/, /--x/, /rw-/, /-wx/, /-w-/];
   const octals = ["7", "5", "4", "0", "1", "6", "3", "2"];
   let octalArray = [];
