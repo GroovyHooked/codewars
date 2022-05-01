@@ -1,3 +1,4 @@
+
 const domainName = (url) => {
   console.log('**********')
   const regex = /http:\/\/|https:\/\//
@@ -19,6 +20,7 @@ const domainName = (url) => {
   }
   indexArray[0] += 1;
   //console.log("indexArray-> ", indexArray);
+
   let result = "";
   hostnameChars.forEach((char) => {
     result += char;
