@@ -1,4 +1,4 @@
-const domainName = require("./index.js");
+const domainName = require("./test.js");
  test("test", () => {
    expect(domainName("http://google.com")).toBe("google");
    expect(domainName("http://google.co.jp")).toBe("google");
