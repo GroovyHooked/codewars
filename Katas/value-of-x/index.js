@@ -28,11 +28,11 @@ const  valueOfX = (eq) => {
         return secondChars[0] === "-" ? -Number(secondChars[1]) : Number(secondChars[1])
     } // Extracting index of x
     xIndex = xChars.indexOf("x")
-    // deleting x from array
+    // deleting x and its operator from array
     if (xIndex > 0) {
       xIndex - 1 > -1 ? xChars.splice(xIndex - 1, 1) : null
       xIndex - 1 > -1 ? xChars.splice(xIndex - 1, 1) : null
-    } // If nothing before x then x is positive
+    } // If there isn't an operator in front of the first number, then it is a positive number
     xChars.length === 1 ? xChars.unshift("+") : null
     xChars.forEach((element) => { // Transfering numbers from an array to another and inversing operators
       /-|\+/.test(element) ? /-/.test(element) ? secondChars.push("+") : secondChars.push("-") : secondChars.push(element)
