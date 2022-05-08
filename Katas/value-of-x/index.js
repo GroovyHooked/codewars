@@ -1,16 +1,17 @@
 const  valueOfX = (eq) => {
+    debugger
     let result = 0
     let xSegmentIndex = 0
     let secondSegmentIndex = 0
     let isXnegative = false
-    const etractedXAndIndexes = []
+    let operator = ''
     let xIndex = 0
-    let op = ''
+    const etractedXAndIndexes = []
     // splitting at equal index
     const splitted = eq.split("=")
     // getting index of splitting part containing x
-    splitted.forEach((el, index) => {
-      (/x/g).test(el) ? xSegmentIndex = index : null
+    splitted.forEach((segment, index) => {
+        segment.includes('x') ? xSegmentIndex = index : null
     });
     // setting second index
     xSegmentIndex === 1 ? secondSegmentIndex = 0 : secondSegmentIndex = 1
@@ -26,27 +27,24 @@ const  valueOfX = (eq) => {
     } else if (secondChars.length === 2 && xChars.length === 1) {
         return secondChars[0] === "-" ? -Number(secondChars[1]) : Number(secondChars[1])
     } // Extracting index of x
-    xChars.forEach((char, index) => {
-      /x/.test(char) ? /-|\+/.test(xChars[index - 1]) ? etractedXAndIndexes.push([xChars[index - 1], char],[index - 1, index]) : etractedXAndIndexes.push([char, index]) : null
-    });
-    etractedXAndIndexes[0][0] === "x" ? xIndex = etractedXAndIndexes[0][1] : xIndex = etractedXAndIndexes[1][1]
+    xIndex = xChars.indexOf("x")
     // deleting x from array
     if (xIndex > 0) {
       xIndex - 1 > -1 ? xChars.splice(xIndex - 1, 1) : null
       xIndex - 1 > -1 ? xChars.splice(xIndex - 1, 1) : null
     } // If nothing before x then x is positive
     xChars.length === 1 ? xChars.unshift("+") : null
-    xChars.forEach((element) => { // Transfering numbers from an array to another
+    xChars.forEach((element) => { // Transfering numbers from an array to another and inversing operators
       /-|\+/.test(element) ? /-/.test(element) ? secondChars.push("+") : secondChars.push("-") : secondChars.push(element)
     }); // Calculating result 
     secondChars.forEach((element, index) => {
       if (/\d/.test(element) && index === 0) {
         result = element
       } else if (/-|\+/.test(element)) {
-        /-/.test(element) ? op = "-" : op = "+";
-      } else if (/\d/.test(element) && op === "-") {
+        /-/.test(element) ? operator = "-" : operator = "+";
+      } else if (/\d/.test(element) && operator === "-") {
         result -= Number(element)
-      } else if (/\d/.test(element) && op === "+") {
+      } else if (/\d/.test(element) && operator === "+") {
         result = Number(result)
         result += Number(element)
       }
@@ -55,4 +53,5 @@ const  valueOfX = (eq) => {
     if (result > 0 && isXnegative) return -Math.abs(result)
     return result
 }
+valueOfX('x + 1 = 9 - 2')
 module.exports = valueOfX
