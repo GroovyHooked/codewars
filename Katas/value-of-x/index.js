@@ -1,5 +1,4 @@
 const  valueOfX = (eq) => {
-    debugger
     let result = 0
     let xSegmentIndex = 0
     let secondSegmentIndex = 0
