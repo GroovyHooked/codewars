@@ -32,7 +32,7 @@ const  valueOfX = (eq) => {
     if (xIndex > 0) {
       xIndex - 1 > -1 ? xChars.splice(xIndex - 1, 1) : null
       xIndex - 1 > -1 ? xChars.splice(xIndex - 1, 1) : null
-    } // If there isn't an operator in front of the first number, then it is a positive number
+    } // (Edge case) If there isn't an operator in front of the first number, then it is a positive number
     xChars.length === 1 ? xChars.unshift("+") : null
     xChars.forEach((element) => { // Transfering numbers from an array to another and inversing operators
       /-|\+/.test(element) ? /-/.test(element) ? secondChars.push("+") : secondChars.push("-") : secondChars.push(element)
@@ -53,5 +53,4 @@ const  valueOfX = (eq) => {
     if (result > 0 && isXnegative) return -Math.abs(result)
     return result
 }
-valueOfX('x + 1 = 9 - 2')
 module.exports = valueOfX
