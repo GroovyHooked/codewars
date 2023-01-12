@@ -1,6 +1,14 @@
 const log = console.log
 function findUniq(arr) {
-  let bool = false
+  if (arr[0].length === 1 || arr[0].trim() === '') {
+    if (arr[0].trim() === '') {
+      const newArr = arr.filter(el => el.trim() !== '')
+      return newArr[0]
+    }
+    const index = arr.sort().reduce((a, b) => b ^ a)
+    return arr[index]
+  }
+
   let newArr = []
   arr.forEach((item, index) => {
     const subArray = item.split('')
@@ -8,44 +16,18 @@ function findUniq(arr) {
       return letter = letter.toLowerCase()
     })
   })
-  log({ newArr })
   const remadeArray = newArr.map(item => {
     return item.join('')
   })
-  log({ remadeArray })
   let result = ''
-  //debugger
-  for (let i = 0; i <= newArr.length - 1; i++) {
-    log({ new: newArr[i] })
-    const arrayToTest = newArr[i]
-    log({ arrayToTest })
-    arrayToTest.forEach(letter => {
-      log({ letter })
+  for (let array of newArr) {
+    array.forEach(letter => {
       for (let y = 0; y <= newArr.length - 1; y++) {
-        log({ y })
-        if (i === y) continue
-        log({ a: newArr[y] })
-        log(newArr[y].indexOf(letter))
         if (newArr[y].indexOf(letter) === -1) {
           result = newArr[y].join('')
-          log({ result })
-          log({ test: remadeArray.indexOf(result), newArr })
-          log(arr[remadeArray.indexOf(result)])
-          break
         }
       }
     })
+    return arr[remadeArray.indexOf(result)]
   }
-  return arr[remadeArray.indexOf(result)]
-
 }
-
-
-//module.exports = findUniq;
-
-findUniq([
-  'Aa', 'aaa',
-  'aaaaa', 'BbBb',
-  'Aaaa', 'AaAaAa',
-  'a'
-])
