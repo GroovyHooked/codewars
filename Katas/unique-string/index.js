@@ -30,4 +30,6 @@ function findUniq(arr) {
     })
     return arr[remadeArray.indexOf(result)]
   }
-}
+} ``
+
+module.exports = findUniq;
