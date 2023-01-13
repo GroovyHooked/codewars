@@ -1,4 +1,4 @@
-const narcissistic = require("./index.js") 
+const narcissistic = require("./index.js")
 test('test', () => {
     expect(narcissistic(7)).toBe(true);
     expect(narcissistic(371)).toBe(true);
