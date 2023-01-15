@@ -1,12 +1,12 @@
 const log = console.log
-String.prototype.camelCase = function(){
-  log(this)
+function camelCase(string){
+  log(string)
     // Initialize an empty string to store the final output
   let camelCased = ''
     // Check if the input string is empty, if so return it
-  if(this === "") return this
+  if(string === "") return string
     // split the string with spaces, filter out any empty elements 
-  this.split(' ').filter(el => el !== '').forEach(word => {
+  string.split(' ').filter(el => el !== '').forEach(word => {
     let capitalized = ''
     //iterate through the words and split them into letters
     word.split('').forEach((letter, index) => {
@@ -20,4 +20,4 @@ String.prototype.camelCase = function(){
   return camelCased
 }
 
-module.exports = String.prototype.camelCase
+module.exports = camelCase
