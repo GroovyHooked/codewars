@@ -1,5 +1,5 @@
 const log = console.log
-String.prototype.camelCase = () =>{
+String.prototype.camelCase = function(){
   log(this)
     // Initialize an empty string to store the final output
   let camelCased = ''
