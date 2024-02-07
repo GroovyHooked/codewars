@@ -10,3 +10,5 @@ const inArray = (array1, array2) => {
   });
   return [...new Set(arrOfSequence.sort())];
 };
+
+module.exports = inArray
