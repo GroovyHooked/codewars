@@ -1,0 +1,7 @@
+# Folders
+node_modules/
+.github/
+
+# Files
+babel.config.js
+jest.config.js
